@@ -4,12 +4,22 @@ This tool helps you plan your trips with a focus on environmental responsibility
 
 ## Setup
 
-1.  **Install Dependencies:**
+1.  **Create and Activate Virtual Environment:**
+    ```bash
+    # Create venv
+    python3 -m venv venv
+    
+    # Activate venv (macOS/Linux)
+    source venv/bin/activate
+    # On Windows use: venv\Scripts\activate
+    ```
+
+2.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-2.  **Configure API Key:**
+3.  **Configure API Key:**
     - Copy `.env.example` to `.env`:
       ```bash
       cp .env.example .env
