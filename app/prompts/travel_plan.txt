@@ -1,0 +1,9 @@
+I am planning a trip to {destination} for {duration}. There will be {people_count} people traveling.
+We are interested in the following activities: {activities}.
+
+Please provide a summary of the destination and detailed advice on how to be an environmentally responsible traveler there. Include tips on:
+1. Local environmental challenges to be aware of.
+2. Eco-friendly transportation options.
+3. Sustainable accommodation or activities (specifically related to our interests).
+4. Cultural norms regarding nature and waste.
+5. Specific 'do's and don'ts' for this location to minimize our footprint.

@@ -3,25 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Conscious Travel Advisor</title>
+    <title>Sustainable Trip Advisor</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+    <div class="header">
+        <h1>SUSTAINABLE<br>TRIP ADVISOR</h1>
+    </div>
     <div class="container">
-        <h1>🌿 Eco-Conscious Travel Advisor</h1>
+        <h2>Trip to <span id="destination-display">...</span></h2>
         <form action="/advice" method="post" onsubmit="document.getElementById('loading').style.display='block'">
             <div class="form-group">
-                <label for="destination">Destination:</label>
-                <input type="text" id="destination" name="destination" required placeholder="e.g., Costa Rica">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" required placeholder="e.g., Linz" oninput="document.getElementById('destination-display').innerText = this.value || '...'">
             </div>
+            
+            <div class="row">
+                <div class="col form-group">
+                    <label for="duration">Dates</label>
+                    <input type="text" id="duration" name="duration" required placeholder="e.g., Dec 20 - Dec 23">
+                </div>
+                <div class="col form-group">
+                    <label for="people_count">Travelers</label>
+                    <input type="text" id="people_count" name="people_count" required placeholder="e.g., 2 people">
+                </div>
+            </div>
+
             <div class="form-group">
-                <label for="duration">Duration:</label>
-                <input type="text" id="duration" name="duration" required placeholder="e.g., 2 weeks">
+                <label for="custom_activity">Tell us about your trip and yourself</label>
+                <input type="text" id="custom_activity" name="custom_activity" placeholder="e.g., We love hiking and history, looking for quiet places...">
             </div>
-            <div class="form-group">
-                <label for="people_count">Number of Travelers:</label>
-                <input type="number" id="people_count" name="people_count" required min="1" value="1">
+
+            <div class="checkbox-group">
+                <h3>Activities</h3>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="museums" name="activities" value="Museums and culture">
+                    <label for="museums">
+                        <span class="checkbox-label">Museums and culture</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" id="nature" name="activities" value="Nature and parks">
+                    <label for="nature">
+                        <span class="checkbox-label">Nature and parks</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" id="food" name="activities" value="Local food experience">
+                    <label for="food">
+                        <span class="checkbox-label">Local food experience</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" id="shopping" name="activities" value="Shopping">
+                    <label for="shopping">
+                        <span class="checkbox-label">Shopping</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-item">
+                    <input type="checkbox" id="events" name="activities" value="Cultural events">
+                    <label for="events">
+                        <span class="checkbox-label">Cultural events</span>
+                    </label>
+                </div>
             </div>
+
             <button type="submit">Get Eco Advice</button>
         </form>
 
@@ -29,7 +80,7 @@
 
         {% if advice %}
         <div class="result">
-            <h2>Travel Advice for {{ destination }}</h2>
+            <h3>Eco-Friendly Travel Tips</h3>
             <div>{{ advice }}</div>
         </div>
         {% endif %}

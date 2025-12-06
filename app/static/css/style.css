@@ -2,62 +2,144 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 800px;
+    max-width: 400px; /* Mobile width */
     margin: 0 auto;
+    padding: 0;
+    background-color: #f2f0e6; /* Beige background */
+}
+
+.header {
+    background-color: #dbe6d9; /* Light green header */
     padding: 20px;
-    background-color: #f4f7f6;
-}
-h1 {
-    color: #2c3e50;
     text-align: center;
+    border-bottom: 1px solid #c0c0c0;
 }
+
+h1 {
+    color: #2f4f4f;
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .container {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #f2f0e6;
+    padding: 20px;
 }
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
+
 label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-size: 16px;
+    color: #000;
 }
+
 input[type="text"], input[type="number"] {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     box-sizing: border-box;
+    background-color: #f2f0e6; /* Match background */
+    font-size: 16px;
 }
+
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+}
+
+.checkbox-group {
+    margin-top: 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    accent-color: #4a6b5d;
+}
+
+.checkbox-label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.checkbox-desc {
+    font-weight: normal;
+    font-size: 14px;
+    color: #555;
+    display: block;
+}
+
 button {
     display: block;
     width: 100%;
-    padding: 10px;
-    background-color: #27ae60;
+    padding: 15px;
+    background-color: #4a6b5d;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    margin-top: 20px;
 }
+
 button:hover {
-    background-color: #219150;
+    background-color: #3a5549;
 }
+
 .result {
     margin-top: 30px;
     padding: 20px;
-    background-color: #e8f5e9;
-    border-radius: 4px;
-    border-left: 5px solid #27ae60;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
     white-space: pre-wrap;
 }
+
 .loading {
     text-align: center;
     display: none;
     margin-top: 20px;
     font-style: italic;
     color: #666;
+}
+
+.eco-tips {
+    margin-top: 30px;
+}
+
+.eco-tip-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.eco-tip-icon {
+    margin-right: 10px;
+    font-size: 24px;
 }

@@ -25,9 +25,11 @@ async def get_advice(
     request: Request,
     destination: str = Form(...),
     duration: str = Form(...),
-    people_count: int = Form(...)
+    people_count: str = Form(...),
+    activities: list[str] = Form(default=[]),
+    custom_activity: str = Form(default="")
 ):
-    advice = advisor.get_advice(destination, duration, str(people_count))
+    advice = advisor.get_advice(destination, duration, people_count, activities, custom_activity)
     return templates.TemplateResponse("index.html", {
         "request": request,
         "advice": advice,
