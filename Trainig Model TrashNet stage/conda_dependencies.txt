@@ -1,0 +1,9 @@
+torch
+torchvision
+cv2
+tqdm
+timm
+numpy
+PIL
+albumentations
+scikit-learn

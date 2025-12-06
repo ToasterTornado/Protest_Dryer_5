@@ -34,15 +34,26 @@ class TravelAdvisor:
             return f"An error occurred while fetching advice: {str(e)}"
 
     def _create_prompt(self, destination, duration, people_count):
+        # return (
+        #     """I am planning a trip to {destination} for {duration}.
+        #     There will be {people_count} people traveling. "
+        #     Please provide a summary of the destination and detailed advice on how to be
+        #     an environmentally responsible traveler there.
+        #     Include tips on:
+        #     1. Local environmental challenges to be aware of.
+        #     2. Eco-friendly transportation options.
+        #     3. Sustainable accommodation or activities.
+        #     4. Cultural norms regarding nature and waste.
+        #     5. Specific 'do's and don'ts' for this location to minimize our footprint."""
+        # )
         return (
-            f"I am planning a trip to {destination} for {duration}. "
-            f"There will be {people_count} people traveling. "
-            f"Please provide a summary of the destination and detailed advice on how to be "
-            f"an environmentally responsible traveler there. "
-            f"Include tips on:\n"
-            f"1. Local environmental challenges to be aware of.\n"
-            f"2. Eco-friendly transportation options.\n"
-            f"3. Sustainable accommodation or activities.\n"
-            f"4. Cultural norms regarding nature and waste.\n"
-            f"5. Specific 'do's and don'ts' for this location to minimize our footprint."
+            f"""
+
+            I am a tourist who arrived at the city of {destination} where I had not been to before and don't know anything.
+            I am staying in there for {duration} and am in a group of {people_count}
+            First, answer whether the city exists in the form "/Exists? yes/no"
+            Secondly, type the city name in the form "/City? city_name". If it was mistyped, then assume the likely city
+            Then, you have to act as a knowledgable resident of the city of {destination} who knows everything and give me advice what to do in the city.
+            You should give the advice in the form of a list and avoid all the excessive sentences like "Sure! Enjoy city! and etc."
+            """
         )
