@@ -22,17 +22,17 @@ The most important apps used locally are suggested with download button:
 
 
 
-## Technical Details
+## technical detail
 
 
 **Create and Activate Virtual Environment:**
     ```bash
     # Create venv
-    python3 -m venv venv
+    python3 -m venv .venv
     
     # Activate venv (macOS/Linux)
-    source venv/bin/activate
-    # On Windows use: venv\Scripts\activate
+    source .venv/bin/activate
+    # On Windows use: .venv\Scripts\activate
     ```
 
 2.  **Install Dependencies:**
