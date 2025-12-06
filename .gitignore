@@ -13,3 +13,8 @@ env/
 
 # macOS
 .DS_Store
+
+# Node.js
+UI/node_modules/
+UI/dist/
+UI/build/
