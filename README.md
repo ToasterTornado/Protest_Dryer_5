@@ -20,3 +20,6 @@ The most important apps used locally are sugested with download button:
 
 ### Page 3: #TODO
 
+
+
+## technical detail
