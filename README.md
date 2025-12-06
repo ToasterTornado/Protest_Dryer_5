@@ -1,52 +1,22 @@
-# Eco-Conscious Travel Advisor
+# Trip Genie
 
-This tool helps you plan your trips with a focus on environmental responsibility using AI.
+Trip Genie is an application the help tourists or imigrants that are not familiar with their destination city to adjust and get around more easily and enhance their experience. 
 
-## Setup
+## Use walkthrough
 
-1.  **Create and Activate Virtual Environment:**
-    ```bash
-    # Create venv
-    python3 -m venv venv
+### Page 1: Enter travel details
+User enters the following datapoints:
+
+    1. Destination City
+    2. Timeframe (from) -> (to)
+    3. Activities (given + your own ideas)
+    4. Any information the user would like to provide to enhance recommendations
     
-    # Activate venv (macOS/Linux)
-    source venv/bin/activate
-    # On Windows use: venv\Scripts\activate
-    ```
+### Page 2: Basic App suggestions
+The most important apps used locally are sugested with download button:
 
-2.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+    1. Local public transport app
+    2. if exists CityBike or Scooter apps
 
-3.  **Configure API Key:**
-    - Copy `.env.example` to `.env`:
-      ```bash
-      cp .env.example .env
-      ```
-    - Open `.env` and replace `your_api_key_here` with your actual OpenAI API key.
+### Page 3: #TODO
 
-## Usage
-
-### Command Line Interface
-Run the CLI script:
-
-```bash
-python cli.py
-```
-
-Follow the prompts to enter your destination, duration, and group size.
-
-### Web Interface (FastAPI)
-To run the web prototype:
-
-1.  Start the server:
-    ```bash
-    python -m app.main
-    ```
-    *Alternatively, you can use uvicorn directly:* `uvicorn app.main:app --reload`
-
-2.  Open your browser and navigate to:
-    [http://127.0.0.1:8000](http://127.0.0.1:8000)
-
-3.  Fill out the form to get your eco-friendly travel advice.
