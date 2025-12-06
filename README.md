@@ -19,10 +19,10 @@ This tool helps you plan your trips with a focus on environmental responsibility
 ## Usage
 
 ### Command Line Interface
-Run the main script:
+Run the CLI script:
 
 ```bash
-python main.py
+python cli.py
 ```
 
 Follow the prompts to enter your destination, duration, and group size.
@@ -32,9 +32,9 @@ To run the web prototype:
 
 1.  Start the server:
     ```bash
-    python app.py
+    python -m app.main
     ```
-    *Alternatively, you can use uvicorn directly:* `uvicorn app:app --reload`
+    *Alternatively, you can use uvicorn directly:* `uvicorn app.main:app --reload`
 
 2.  Open your browser and navigate to:
     [http://127.0.0.1:8000](http://127.0.0.1:8000)

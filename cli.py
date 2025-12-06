@@ -1,5 +1,5 @@
 import sys
-from advisor import TravelAdvisor
+from app.services.advisor import TravelAdvisor
 
 def main():
     print("--- Eco-Conscious Travel Advisor ---")
