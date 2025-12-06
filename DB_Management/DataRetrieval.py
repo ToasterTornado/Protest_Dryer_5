@@ -8,12 +8,32 @@ DB_FOLDER = "../database"
 
 def load_all_links() -> List[Dict]:
     all_links = []
-    for file in glob.glob(DB_FOLDER + "/**/*.txt", recursive=True):
+
+    # First, handle plain-text URL lists:
+    for file in glob.glob(os.path.join(DB_FOLDER, "**", "*.txt"), recursive=True):
         with open(file, "r", encoding="utf-8") as f:
             for line in f:
-                link = line.strip()
-                if link:
-                    all_links.append({"file": file, "url": link})
+                url = line.strip()
+                if url:
+                    all_links.append({"file": file, "url": url})
+
+    # Then, handle JSON files:
+    for file in glob.glob(os.path.join(DB_FOLDER, "**", "*.json"), recursive=True):
+        with open(file, "r", encoding="utf-8") as f:
+            try:
+                data = json.load(f)
+                if isinstance(data, list):
+                    for url in data:
+                        if isinstance(url, str):
+                            all_links.append({"file": file, "url": url})
+                elif isinstance(data, dict):
+                    # adjust depending on your JSON structure, e.g. data["links"]
+                    links = data.get("links", [])
+                    for url in links:
+                        if isinstance(url, str):
+                            all_links.append({"file": file, "url": url})
+            except json.JSONDecodeError:
+                print(f"Warning: failed to parse JSON file {file}")
     return all_links
 
 LINKS = load_all_links()
