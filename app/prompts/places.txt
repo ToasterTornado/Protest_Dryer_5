@@ -15,7 +15,11 @@ Structure:
   {{
     "name": "Name of Place",
     "type": "Category",
-    "description": "Short description."
+    "description": "Short description.",
+    "coordinates": {{
+      "lat": 48.8566,
+      "lng": 2.3522
+    }}
   }},
   ...
 ]

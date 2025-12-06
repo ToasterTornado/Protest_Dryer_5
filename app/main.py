@@ -6,6 +6,7 @@ from pathlib import Path
 import uvicorn
 import markdown
 from app.services.advisor import TravelAdvisor
+from app.services.storage import StorageService
 
 app = FastAPI()
 
@@ -16,6 +17,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
 advisor = TravelAdvisor()
+storage = StorageService()
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
@@ -39,6 +41,19 @@ async def get_advice(
             "advice": result["error"],
             "destination": destination
         })
+
+    # Save the result
+    trip_data = {
+        "destination": destination,
+        "duration": duration,
+        "people_count": people_count,
+        "activities": activities,
+        "custom_activity": custom_activity,
+        "advice_type": advice_type,
+        "advice": result["advice"],
+        "places": result["places"]
+    }
+    storage.save_trip(trip_data)
 
     advice_html = markdown.markdown(result["advice"])
     
