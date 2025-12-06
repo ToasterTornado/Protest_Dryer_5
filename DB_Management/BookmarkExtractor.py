@@ -4,9 +4,9 @@ import yaml
 import csv
 import os
 
+print(os.getcwd())
 
-
-INPUT_FILE = "LinkCollection.html"  # your Firefox export
+INPUT_FILE = "../database/austria_linz/LinkCollection.html"  # your Firefox export
 FOLDER_NAME = "LinkCollectionWelcomeLinz"     # folder to extract
 
 # ----------------------------
@@ -40,19 +40,19 @@ links = extract_folder_links(soup, FOLDER_NAME)
 # ----------------------------
 # Save as JSON
 # ----------------------------
-with open("linkcollection.json", "w", encoding="utf-8") as f:
+with open("../database/austria_linz/linkcollection.json", "w", encoding="utf-8") as f:
     json.dump(links, f, indent=4, ensure_ascii=False)
 
 # ----------------------------
 # Save as YAML
 # ----------------------------
-with open("linkcollection.yaml", "w", encoding="utf-8") as f:
+with open("../database/austria_linz/linkcollection.yaml", "w", encoding="utf-8") as f:
     yaml.safe_dump(links, f, allow_unicode=True)
 
 # ----------------------------
 # Save as CSV
 # ----------------------------
-with open("linkcollection.csv", "w", newline="", encoding="utf-8") as f:
+with open("../database/austria_linz/linkcollection.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.DictWriter(f, fieldnames=["title", "url", "add_date", "last_modified"])
     writer.writeheader()
     writer.writerows(links)
