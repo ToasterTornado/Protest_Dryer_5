@@ -51,7 +51,7 @@ const MapPage = () => {
   if (isLoading || !center) {
     return (
       <MobileLayout>
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-[100dvh]">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-coral"></div>
         </div>
       </MobileLayout>
@@ -60,7 +60,7 @@ const MapPage = () => {
 
   return (
     <MobileLayout>
-      <div className="relative h-full w-full bg-slate-100">
+      <div className="relative h-[100dvh] w-full bg-slate-100">
         {/* Header */}
         <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between">
           <button

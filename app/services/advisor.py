@@ -4,6 +4,7 @@ import re
 from openai import OpenAI
 from dotenv import load_dotenv
 from app.services.prompts import get_travel_plan_prompt, get_evaluation_prompt, get_places_prompt
+import DB_Management.DataRetrieval as dbdr
 
 # Load environment variables
 load_dotenv()
@@ -63,6 +64,7 @@ class TravelAdvisor:
                     {"role": "system", "content": system_content},
                     {"role": "user", "content": prompt}
                 ],
+                # tools=dbdr.TOOLS,
                 temperature=0.7
             )
             return response.choices[0].message.content
@@ -79,6 +81,7 @@ class TravelAdvisor:
                     {"role": "system", "content": "You are an expert environmental scientist and sustainability auditor."},
                     {"role": "user", "content": eval_prompt}
                 ],
+                # tools=dbdr.TOOLS,
                 temperature=0.5
             )
             return response.choices[0].message.content
@@ -95,6 +98,7 @@ class TravelAdvisor:
                     {"role": "system", "content": "You are a helpful travel assistant. Output valid JSON only."},
                     {"role": "user", "content": prompt}
                 ],
+                # tools=dbdr.TOOLS,
                 temperature=0.7
             )
             content = response.choices[0].message.content
