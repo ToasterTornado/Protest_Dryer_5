@@ -1,0 +1,9 @@
+I am planning a trip to {destination} for {duration}. There will be {people_count} people traveling.
+We are interested in the following activities: {activities}.
+
+Please provide a highly efficient travel itinerary for {destination}. Focus on:
+1. Time optimization and best routes to see the most.
+2. Cost-effective and convenient transportation options.
+3. Best value accommodation and time-saving tips.
+4. Practical advice for navigating the city quickly.
+5. 'Do's and don'ts' for a smooth, hassle-free experience.

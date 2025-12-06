@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import uvicorn
+import markdown
 from app.services.advisor import TravelAdvisor
 
 app = FastAPI()
@@ -27,12 +28,24 @@ async def get_advice(
     duration: str = Form(...),
     people_count: str = Form(...),
     activities: list[str] = Form(default=[]),
-    custom_activity: str = Form(default="")
+    custom_activity: str = Form(default=""),
+    advice_type: str = Form(...)
 ):
-    advice = advisor.get_advice(destination, duration, people_count, activities, custom_activity)
-    return templates.TemplateResponse("index.html", {
+    result = advisor.get_advice(destination, duration, people_count, activities, custom_activity, advice_type)
+    
+    if isinstance(result, dict) and "error" in result:
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "advice": result["error"],
+            "destination": destination
+        })
+
+    advice_html = markdown.markdown(result["advice"])
+    
+    return templates.TemplateResponse("result.html", {
         "request": request,
-        "advice": advice,
+        "advice": advice_html,
+        "places": result["places"],
         "destination": destination
     })
 

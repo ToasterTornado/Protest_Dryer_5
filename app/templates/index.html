@@ -73,17 +73,13 @@
                 </div>
             </div>
 
-            <button type="submit">Get Eco Advice</button>
+            <div class="button-group">
+                <button type="submit" name="advice_type" value="eco" class="btn-eco">Get Eco-Friendly Advice</button>
+                <button type="submit" name="advice_type" value="efficient" class="btn-efficient">Get Efficient Advice</button>
+            </div>
         </form>
 
         <div id="loading" class="loading">Consulting the AI advisor... please wait...</div>
-
-        {% if advice %}
-        <div class="result">
-            <h3>Eco-Friendly Travel Tips</h3>
-            <div>{{ advice }}</div>
-        </div>
-        {% endif %}
     </div>
 </body>
 </html>

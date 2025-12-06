@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Advice for {{ destination }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>SUSTAINABLE<br>TRIP ADVISOR</h1>
+    </div>
+    <div class="container">
+        <h2>Your Trip to {{ destination }}</h2>
+        
+        {% if places %}
+        <div class="places-section">
+            <h3>Recommended Places</h3>
+            <div class="places-grid">
+                {% for place in places %}
+                <div class="place-card">
+                    <div class="place-type">{{ place.type }}</div>
+                    <h4>{{ place.name }}</h4>
+                    <p>{{ place.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="result-content">
+            {{ advice | safe }}
+        </div>
+
+        <div class="actions">
+            <a href="/" class="button-link">Plan Another Trip</a>
+        </div>
+    </div>
+</body>
+</html>

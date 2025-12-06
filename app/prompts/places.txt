@@ -1,0 +1,21 @@
+I am traveling to {destination}.
+My interests are: {activities}.
+{custom_activity}
+
+Please recommend 3 specific places or venues to visit that strictly match these interests.
+
+CRITICAL INSTRUCTION:
+You must output ONLY a valid JSON array.
+Do not output any conversational text.
+Do not output markdown code blocks (no ```json).
+Just the raw JSON array.
+
+Structure:
+[
+  {{
+    "name": "Name of Place",
+    "type": "Category",
+    "description": "Short description."
+  }},
+  ...
+]
