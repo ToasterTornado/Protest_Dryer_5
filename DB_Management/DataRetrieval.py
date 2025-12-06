@@ -2,6 +2,7 @@ import os
 import glob
 import requests
 from typing import List, Dict
+import json
 
 # === Existing local-link DB tool ===
 DB_FOLDER = "../database"
@@ -59,30 +60,29 @@ def search_links(query: str, top_k: int = 5) -> List[str]:
 WEBSEARCH_API_KEY = os.getenv("WEBSEARCH_API_KEY")  # set this env var
 
 def web_search(query: str, top_k: int = 5) -> List[Dict]:
-    """
-    Calls the WebsearchAPI for `query`, returns a list of results with titles and URLs.
-    Adjust this depending on the actual WebsearchAPI spec.
-    """
-    url = "https://api.websearchapi.com/search"  # replace with actual endpoint
+    url = "https://api.websearchapi.ai/ai-search"
     headers = {
         "Authorization": f"Bearer {WEBSEARCH_API_KEY}",
-        "Accept": "application/json"
+        "Content-Type": "application/json"
     }
-    params = {
-        "q": query,
-        "num": top_k
+    payload = {
+        "query": query,
+        "maxResults": top_k,
+        "includeContent": False,
+        # adjust country / language as needed
+        "country": "us",
+        "language": "en"
     }
-    resp = requests.get(url, headers=headers, params=params, timeout=10)
+    resp = requests.post(url, headers=headers, json=payload, timeout=10)
     resp.raise_for_status()
     data = resp.json()
 
-    # Example: adapt depending on API’s JSON format
     results = []
     for item in data.get("results", []):
         results.append({
             "title": item.get("title"),
-            "url": item.get("link"),
-            "snippet": item.get("snippet")
+            "url": item.get("link") or item.get("url"),
+            "snippet": item.get("snippet") or item.get("excerpt") or ""
         })
     return results
 
@@ -112,3 +112,6 @@ TOOLS = [
         }
     }
 ]
+
+
+
